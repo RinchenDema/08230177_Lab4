@@ -1,0 +1,72 @@
+/* About Me Page Styles */
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(to right, #fff3e0, #ffe0b2);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #fb8c00;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.profile-card {
+    width: 80%;
+    max-width: 700px;
+    background-color: white;
+    margin: 2rem auto;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.profile-card h2 {
+    color: #e65100;
+}
+
+.profile-card p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.contact-info {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+a.button {
+    display: inline-block;
+    background-color: #fb8c00;
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a.button:hover {
+    background-color: #e65100;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: #666;
+}
+
+.center-content {
+    text-align: center;
+    margin: 20px;
+}
+
+.divider {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}

@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Learning Journey</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(to right, #f9f9f9, #e3f2fd);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1976d2;
+            color: white;
+            padding: 1.2rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .journey-card {
+            background-color: #e3f2fd;
+            padding: 1rem;
+            border-left: 5px solid #1976d2;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+        }
+
+        .journey-card h2 {
+            margin: 0;
+            color: #0d47a1;
+        }
+
+        .journey-card small {
+            color: #555;
+            font-style: italic;
+        }
+
+        a.button {
+            display: inline-block;
+            background-color: #1976d2;
+            color: white;
+            padding: 0.7rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a.button:hover {
+            background-color: #0d47a1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: #777;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌱 My Learning Journey</h1>
+        <p>Tracking my growth and progress in ICT learning</p>
+    </header>
+
+    <div class="container">
+        {% for journey in journeys %}
+            <div class="journey-card">
+                <h2>{{ journey.title }}</h2>
+                <p>{{ journey.description }}</p>
+                <small>Posted on: {{ journey.date }}</small>
+            </div>
+        {% empty %}
+            <p>No learning journey entries yet. Add one in the admin panel.</p>
+        {% endfor %}
+
+        <a href="{% url 'about' %}" class="button">👤 About Me</a>
+    </div>
+
+    <footer>
+        <p>© 2025 My Learning Journey </p>
+    </footer>
+</body>
+</html>

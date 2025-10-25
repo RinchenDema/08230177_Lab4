@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About Me</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(to right, #f9f9f9, #e3f2fd);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1976d2;
+            color: white;
+            padding: 1.2rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 👇 Layout: image left, text right */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .profile-image {
+            width: 230px;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid #1976d2;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 280px;
+            background-color: #e3f2fd;
+            padding: 2rem;
+            border-left: 5px solid #1976d2;
+            border-radius: 10px;
+        }
+
+        .profile-info h2 {
+            margin: 0;
+            color: #0d47a1;
+            font-size: 1.8rem;
+        }
+
+        .profile-info p {
+            margin: 0.6rem 0;
+            line-height: 1.6;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #bbdefb;
+            margin: 1rem 0;
+        }
+
+        .extra-info {
+            margin-top: 2.5rem;
+            background-color: #f1f8ff;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #1976d2;
+        }
+
+        .extra-info h3 {
+            color: #0d47a1;
+            margin-bottom: 1rem;
+        }
+
+        .extra-info p {
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+
+        .center-content {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        a.button {
+            display: inline-block;
+            background-color: #1976d2;
+            color: white;
+            padding: 0.7rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a.button:hover {
+            background-color: #0d47a1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: #777;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 700px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-info {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>👩‍💻 About Me</h1>
+        <p>Who I am and what I aspire to become</p>
+    </header>
+
+    <div class="container">
+        <div class="profile-section">
+            <!-- 👇 Profile picture on the left -->
+            <img src="{% static 'images/profile.jpg' %}" alt="Profile Picture" class="profile-image">
+
+            <!-- 👇 Profile details on the right -->
+            {% if abouts %}
+            {% with about=abouts.0 %}
+            <div class="profile-info">
+                <h2>{{ about.name }}</h2>
+                <p><strong>Email:</strong> {{ about.email }}</p>
+                <hr class="divider">
+                <p>{{ about.bio }}</p>
+            </div>
+            {% endwith %}
+            {% else %}
+            <div class="profile-info">
+                <p>No details found. Please add your profile from the admin panel.</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- 👇 Extra personal info section -->
+        <div class="extra-info">
+            <h3>🌟 More About Me</h3>
+            <p>Hello! My name is Rinchen Dema. I’m passionate about learning and teaching ICT.
+                I enjoy exploring new technologies, creating interactive learning materials, and
+                helping students develop digital skills that prepare them for the future.</p>
+            <p>Outside of academics, I love cooking, dancing, and singing. I also enjoy learning web development
+                tools like HTML, CSS, Python, and Django. My goal is to become an innovative and inspiring teacher
+                who integrates technology creatively in the classroom. someone who truly motivates and empowers
+                students to love learning.</p>
+        </div>
+
+
+
+        <div class="center-content">
+            <a href="{% url 'index' %}" class="button">⬅ Back to Journey</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 My Learning Journey</p>
+    </footer>
+</body>
+
+</html>
